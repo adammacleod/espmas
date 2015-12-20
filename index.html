@@ -1,1 +1,67 @@
-Hello World
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Merrrry Espmas!</title>
+        <meta name="description" content="Internet connected Christmas lights.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    </head>
+    <body>
+    	<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+			<div class="container">
+				<a class="navbar-brand" href="#">Espmas</a>
+			</div>
+		</nav>
+    	<div class="container">
+    		<div class="row">
+        		<div class="col-sm-12">
+        			<p>
+						<div class="btn-group btn-group-justified" role="group"> 
+							<a href="#" onclick="request('on'); return false;" class="btn btn-default" role="button">On</a>
+						</div>
+					</p>
+        		</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-sm-4">
+					<p>
+						<div class="btn-group btn-group-justified" role="group"> 
+							<a href="#" onclick="request('blinky'); return false;" class="btn btn-default" role="button">Blink</a>
+						</div>
+					</p>
+        		</div>
+        		<div class="col-sm-4">
+        			<p>
+						<div class="btn-group btn-group-justified" role="group"> 
+							<a href="#" onclick="request('fadey'); return false;" class="btn btn-default" role="button">Fade</a>
+						</div>
+					</p>
+        		</div>
+        		<div class="col-sm-4">
+        			<p>
+						<div class="btn-group btn-group-justified" role="group"> 
+							<a href="#" onclick="request('random'); return false;" class="btn btn-default" role="button">Random</a>
+						</div>
+					</p>
+        		</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-sm-12">
+        			<p>
+						<div class="btn-group btn-group-justified" role="group"> 
+							<a href="#" onclick="request('off'); return false;" class="btn btn-default" role="button">Off</a>
+						</div>
+					</p>
+        		</div>
+        	</div>
+    	</div>
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+        	function request(mode) {
+        		$.get("http://192.168.1.10:48080/?mode=" + mode);
+        	}
+        </script>
+    </body>
+</html>
