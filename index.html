@@ -55,12 +55,35 @@
 					</p>
         		</div>
         	</div>
+	    	<div class="row">
+        		<div class="col-sm-4">
+        			<h2>
+        				Shutdown Timer
+        			</h2>
+					<p>
+						<div class="input-group">
+						  <input id="timeout" class="form-control" type="number" min="0" step="1">
+
+						  <div class="input-group-btn">
+						    <button type="button" onclick="timeout(); return false;" class="btn btn-default" role="button">Set Timer</a>
+						  </div>
+						</div>
+					</p>
+        		</div>
+        	</div>
     	</div>
         <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <script type="text/javascript">
         	function request(mode) {
         		$.get("http://192.168.1.10:48080/?mode=" + mode);
+        	}
+
+        	function timeout() {
+        		var time = $('#timeout').val()*1000;
+        		if (time > 0) {
+        			$.get("http://192.168.1.10:48080/?timer=" + time);
+        		}
         	}
         </script>
     </body>
